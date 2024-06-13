@@ -18,28 +18,34 @@
     <link id="pagestyle" href="{{ asset('/assets/css/soft-ui-dashboard.css?v=1.0.7') }}" rel="stylesheet" />
     <!-- Nepcha Analytics (nepcha.com) -->
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     @include('components.layout.components.sidebar')
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
         {{-- navbar --}}
         @include('components.layout.components.navbar')
-        {{-- jumlah total --}}
-        @include('components.layout.components.jumlah')
-
-          <div class="container-fluid mt-10">
-            <div class="col-lg-100 col-md-12">
+        
+        
+        <div class="container-fluid mt-10">
+            <div class="col-lg-12 col-md-12">
                 <div class="card h-100">
                     <div class="card-header pb-0">
-                        <h6>Content</h6>
+                        <h2>Lejar Bhumi Immaculata</h2>
+                        {{-- jumlah total --}}
+                        @include('components.layout.components.jumlah')
+                    </div>
+                    <div class="card-body">
+                        @yield('content')
                     </div>
                 </div>
             </div>
-          </div>
-    
+        </div>
     </main>
+    
 
 
 

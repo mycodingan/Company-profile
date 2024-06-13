@@ -7,6 +7,6 @@
     <title>Lejar Bhumi Immaculata</title>
 </head>
 <body>
-    @yield('content')
+    {{-- @yield('content') --}}
 </body>
 </html>

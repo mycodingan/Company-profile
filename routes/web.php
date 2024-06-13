@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +32,13 @@ Route::post('/register', [UserController::class, 'register'])->middleware('guest
 
 // Grup route yang memerlukan autentikasi
 Route::middleware(['auth'])->group(function () {
+    Route::get('gallery', [GalleryController::class, 'index'])->name('gallery.index');
+    Route::post('gallery', [GalleryController::class, 'store'])->name('gallery.store');
+    Route::put('gallery/{gallery}', [GalleryController::class, 'update'])->name('gallery.update');
+    Route::delete('gallery/{gallery}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::get('/about', [AboutController::class, 'show'])->name('about.show');
+    Route::get('/about/edit', [AboutController::class, 'edit'])->name('about.edit');
+    Route::put('/about/update', [AboutController::class, 'update'])->name('about.update');
 });

@@ -2,45 +2,64 @@
 
 namespace Database\Seeders;
 
-use App\Models\Company;
-use App\Models\Profile;
-use App\Models\Testimony;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
+use Illuminate\Support\Facades\File;
 
 class CompanySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
+        $faker = Faker::create();
+
+        // Membuat direktori jika belum ada
+        $aboutImagePath = public_path('storage/about_images');
+        $companyLogoPath = public_path('storage/company_logos');
+        $companyFaviconPath = public_path('storage/company_favicons');
+
+        if (!File::exists($aboutImagePath)) {
+            File::makeDirectory($aboutImagePath, 0755, true);
+        }
+
+        if (!File::exists($companyLogoPath)) {
+            File::makeDirectory($companyLogoPath, 0755, true);
+        }
+
+        if (!File::exists($companyFaviconPath)) {
+            File::makeDirectory($companyFaviconPath, 0755, true);
+        }
+
+        // Seeder untuk About
+        DB::table('abouts')->insert([
+            'title' => $faker->sentence,
+            'content' => $faker->paragraph,
+            'image' => 'about_images/' . basename($faker->image('public/storage/about_images', 640, 480, null, false)),
+        ]);
+
         // Seeder untuk Profile
         DB::table('profiles')->insert([
-            'visi' => 'Visi perusahaan...',
-            'misi' => 'Misi perusahaan...',
-            'tujuan' => 'Tujuan perusahaan...',
-            'email' => 'perusahaan@example.com',
+            'visi' => $faker->sentence,
+            'misi' => $faker->sentence,
+            'tujuan' => $faker->sentence,
+            'email' => $faker->email,
         ]);
 
         // Seeder untuk Testimony
         DB::table('testimonies')->insert([
-            'nama_pengisi' => 'John Doe',
-            'tanggal_mengisi' => now(),
-            'isi' => 'Testimoni...',
+            'nama_pengisi' => $faker->name,
+            'tanggal_mengisi' => $faker->date,
+            'isi' => $faker->paragraph,
         ]);
 
         // Seeder untuk Company
         DB::table('companies')->insert([
-            'title' => 'Nama Perusahaan',
-            'logo' => 'logo.png',
-            'favicon' => 'favicon.ico',
-            'website_name' => 'Nama Website',
-            'alamat' => 'Alamat Perusahaan...',
-            'nomor_telepon' => '08123456789',
+            'title' => $faker->company,
+            'logo' => 'company_logos/' . basename($faker->image('public/storage/company_logos', 100, 100, null, false)),
+            'favicon' => 'company_favicons/' . basename($faker->image('public/storage/company_favicons', 32, 32, null, false)),
+            'website_name' => $faker->domainName,
+            'alamat' => $faker->address,
+            'nomor_telepon' => $faker->phoneNumber,
         ]);
     }
 }

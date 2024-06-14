@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>lejar Bhumi Immaculata</title>
+    <title>{{ $company->title }}</title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
@@ -28,8 +28,8 @@
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
         {{-- navbar --}}
         @include('components.layout.components.navbar')
-        
-        
+
+
         <div class="container-fluid mt-10">
             <div class="col-lg-12 col-md-12">
                 <div class="card h-100">
@@ -45,7 +45,7 @@
             </div>
         </div>
     </main>
-    
+
 
 
 
@@ -71,7 +71,7 @@
             <div class="card-body pt-sm-3 pt-0">
                 <!-- Sidebar Backgrounds -->
                 <div>
-                    <h6 class="mb-0">warna sidebar</h6>
+                    {{-- <h6 class="mb-0">warna sidebar</h6> --}}
                 </div>
                 <a href="javascript:void(0)" class="switch-trigger background-color">
                     <div class="badge-colors my-2 text-start">
@@ -121,6 +121,9 @@
     <script src="{{ asset('/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
     <script src="{{ asset('/assets/js/plugins/chartjs.min.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {

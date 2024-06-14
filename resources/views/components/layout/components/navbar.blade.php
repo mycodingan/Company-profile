@@ -4,15 +4,16 @@
         <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">{{ $company->website_name}}</li>
                 </ol>
-                <h2 class="font-weight-bolder mb-0">lejar Bhumi Immaculata</h2>
+                <h6 class="font-weight-bolder mb-0">Dashboard</h6>
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                    <div class="input-group">
+                    {{-- <div class="input-group">
                         <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
                         <input type="text" class="form-control" placeholder="Type here...">
-                    </div>
+                    </div> --}}
                 </div>
                 <ul class="navbar-nav  justify-content-end">
                     <li class="nav-item dropdown pe-2 d-flex align-items-center">
@@ -56,18 +57,3 @@
         </div>
     </nav>
     <!-- End Navbar -->
-<!-- Load Bootstrap CSS dari CDN -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Load jQuery dari CDN -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Load Bootstrap JS Bundle dari CDN -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Script untuk dropdown -->
-<script>
-    $(document).ready(function() {
-        $('.dropdown-toggle').dropdown();
-    });
-</script>

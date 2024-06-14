@@ -10,8 +10,8 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $galleries = Gallery::all();
-        return view('gallery.index', compact('galleries'));
+        $gallery = Gallery::all();
+        return view('gallery.index', compact('gallery'));
     }
 
     public function store(Request $request)
@@ -34,7 +34,7 @@ class GalleryController extends Controller
 
         $gallery->save();
 
-        return redirect()->route('gallery.index')->with('success', 'Gallery created successfully.');
+        return redirect()->route('gallery.index')->with('success', 'Galeri berhasil dibuat.');
     }
 
     public function update(Request $request, Gallery $gallery)
@@ -54,10 +54,10 @@ class GalleryController extends Controller
 
         $gallery->title = $validatedData['title'];
         $gallery->content = $validatedData['content'];
-        $gallery->caption = $validatedData['caption'];
+        $gallery->caption = $validatedData['caption'] ?? $gallery->caption;
         $gallery->save();
 
-        return redirect()->route('gallery.index')->with('success', 'Gallery updated successfully.');
+        return redirect()->route('gallery.index')->with('success', 'Galeri berhasil diperbarui.');
     }
 
     public function destroy(Gallery $gallery)
@@ -65,6 +65,6 @@ class GalleryController extends Controller
         Storage::disk('public')->delete($gallery->image);
         $gallery->delete();
 
-        return redirect()->route('gallery.index')->with('success', 'Gallery deleted successfully.');
+        return redirect()->route('gallery.index')->with('success', 'Galeri berhasil dihapus.');
     }
 }

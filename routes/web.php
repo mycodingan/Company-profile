@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
@@ -32,10 +33,16 @@ Route::post('/register', [UserController::class, 'register'])->middleware('guest
 
 // Grup route yang memerlukan autentikasi
 Route::middleware(['auth'])->group(function () {
+    // company
+    Route::get('/company', [CompanyController::class, 'index'])->name('company.index');
+    Route::get('/company/edit', [CompanyController::class, 'edit'])->name('company.edit');
+    Route::put('/company/update/{id}', [CompanyController::class, 'update'])->name('company.update');
+    // galery
     Route::get('gallery', [GalleryController::class, 'index'])->name('gallery.index');
     Route::post('gallery', [GalleryController::class, 'store'])->name('gallery.store');
     Route::put('gallery/{gallery}', [GalleryController::class, 'update'])->name('gallery.update');
     Route::delete('gallery/{gallery}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+    // tampilan
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
     Route::get('/about', [AboutController::class, 'show'])->name('about.show');

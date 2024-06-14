@@ -11,7 +11,8 @@ class GalleryController extends Controller
     public function index()
     {
         $gallery = Gallery::all();
-        return view('gallery.index', compact('gallery'));
+        $totalImages = Gallery::count();
+        return view('gallery.index', compact('gallery','totalImages'));
     }
 
     public function store(Request $request)

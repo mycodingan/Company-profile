@@ -1,0 +1,72 @@
+/* Gaya kustom untuk bagian about */
+.judul {
+    font-weight: bold;
+    color: rgb(4, 74, 4);
+}
+
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.about-content {
+    flex: 1;
+    padding: 20px;
+    padding-right: 50px; /* Sesuaikan padding-kanan untuk responsivitas */
+    color: rgb(4, 95, 4);
+    text-align: center; /* Pusatkan teks */
+}
+
+.about-image {
+    display: flex;
+    justify-content: center; /* Pusatkan gambar dalam kontainer */
+    flex: 1;
+}
+
+.about-image img {
+    border-radius: 154px 0px 127px 0px;
+    -webkit-border-radius: 154px 0px 127px 0px;
+    -moz-border-radius: 154px 0px 127px 0px;
+    margin-left: 50px; /* Sesuaikan margin-kiri untuk responsivitas */
+    max-width: 100%; /* Pastikan gambar tidak meluap dari kontainernya */
+}
+
+.about-content h1,
+.about-content p {
+    margin: 0;
+}
+
+/* Gaya kustom untuk desain responsif */
+@media (max-width: 768px) {
+    .judul {
+        font-size: 1.5rem; /* Sesuaikan ukuran font untuk layar yang lebih kecil */
+        margin-bottom: 1rem; /* Tambahkan margin di bawah judul */
+    }
+
+    .about-content {
+        padding-right: 20px;
+        text-align: center; /* Pusatkan teks untuk layar yang lebih kecil */
+    }
+
+    .about-image img {
+        margin-left: 0;
+    }
+
+    .about-section {
+        flex-direction: column; /* Ubah arah flex untuk layar yang lebih kecil */
+        align-items: center; /* Pusatkan item */
+    }
+
+    .about-content,
+    .about-image {
+        margin-bottom: 20px; /* Tambahkan margin antar bagian untuk layar yang lebih kecil */
+        text-align: center; /* Pusatkan item */
+    }
+}

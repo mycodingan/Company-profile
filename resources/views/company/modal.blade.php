@@ -20,14 +20,6 @@
                             value="{{ $company->website_name }}">
                     </div>
                     <div class="mb-3">
-                        <label for="logo" class="form-label">Logo</label>
-                        <input type="file" class="form-control" id="logo" name="logo">
-                    </div>
-                    <div class="mb-3">
-                        <label for="favicon" class="form-label">Favicon</label>
-                        <input type="file" class="form-control" id="favicon" name="favicon">
-                    </div>
-                    <div class="mb-3">
                         <label for="alamat" class="form-label">Alamat</label>
                         <input type="text" class="form-control" id="alamat" name="alamat" value="{{ $company->alamat }}">
                     </div>

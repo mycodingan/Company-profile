@@ -37,7 +37,7 @@ class UserController extends Controller
 
         if (Auth::attempt($request->only('email', 'password'))) {
             $request->session()->regenerate();
-            return redirect()->intended('/home');
+            return redirect()->intended('/dashboard');
         }
 
         return back()->withErrors([

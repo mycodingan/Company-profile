@@ -14,11 +14,28 @@
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="{{ asset('/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+        <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('/assets/css/soft-ui-dashboard.css?v=1.0.7') }}" rel="stylesheet" />
     <!-- Nepcha Analytics (nepcha.com) -->
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .container-fluid.mt-10 {
+            margin-top: 2rem !important; /* Sesuaikan margin-top sesuai kebutuhan */
+        }
+
+        .card.h-100 {
+            margin-top: -20px; /* Sesuaikan margin-top negatif untuk mengangkat konten */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Efek bayangan 3D */
+            border-radius: 15px; /* Sudut melengkung */
+        }
+
+        .card-body {
+            padding: 2rem; /* Menambahkan padding untuk isi card */
+        }
+    </style>
 
 </head>
 
@@ -29,12 +46,11 @@
         {{-- navbar --}}
         @include('components.layout.components.navbar')
 
-
         <div class="container-fluid mt-10">
             <div class="col-lg-12 col-md-12">
                 <div class="card h-100">
                     <div class="card-header pb-0">
-                        <h2>Lejar Bhumi Immaculata</h2>
+                        <h2>{{ $company->website_name }}</h2>
                         {{-- jumlah total --}}
                         @include('components.layout.components.jumlah')
                     </div>
@@ -45,7 +61,6 @@
             </div>
         </div>
     </main>
-
 
 
 

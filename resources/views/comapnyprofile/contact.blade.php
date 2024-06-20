@@ -23,7 +23,7 @@
         background-color: #0056b3;
     }
 </style>
-<div class="container">
+<div class="container" id="contact">
     <div class="text-center">
         <h1 class="judul">Contact Us</h1>
         <p>

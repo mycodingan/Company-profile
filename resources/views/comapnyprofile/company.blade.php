@@ -33,6 +33,7 @@
     @include('comapnyprofile.product')
     @include('comapnyprofile.testimoni')
     @include('comapnyprofile.contact')
+    @include('comapnyprofile.footer')
     
 
 

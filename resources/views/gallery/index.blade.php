@@ -148,14 +148,14 @@
                     </div>
                     <div class="modal-body">
                         <div>
-                            <label for="title">Title:</label>
+                            <label for="title">Judul Kegiatan:</label>
                             <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}">
                             @error('title')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mt-3">
-                            <label for="content">Content:</label>
+                            <label for="content">isi:</label>
                             <textarea name="content" id="content" class="form-control">{{ old('content') }}</textarea>
                             @error('content')
                                 <div class="text-danger">{{ $message }}</div>

@@ -13,19 +13,19 @@
                 <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Gallery</a>
+                <a class="nav-link" href="#galery">Gallery</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Product</a>
+                <a class="nav-link" href="#product">Product</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Testimony</a>
+                <a class="nav-link" href="#testi">Testimony</a>
             </li>
+            {{-- <li class="nav-item">
+                <a class="nav-link" href="#visi">Visi Misi</a>
+            </li> --}}
             <li class="nav-item">
-                <a class="nav-link" href="#">Visi Misi</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="#contact">Contact</a>
             </li>
         </ul>
     </div>

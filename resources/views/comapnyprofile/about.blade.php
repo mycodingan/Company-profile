@@ -14,7 +14,7 @@
             <div class="col-lg-6 about-section" data-aos="fade-left">
                 <div class="about-image w-100">
                     @if ($about->image)
-                        <img src="{{ asset('storage/' . $about->image) }}" alt="About Image" class="img-fluid ">
+                        <img src="{{ asset('storage/' . $about->image) }}" alt="About Image" class="img-fluid " >
                     @endif
                 </div>
             </div>

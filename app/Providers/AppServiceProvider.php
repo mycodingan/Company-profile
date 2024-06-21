@@ -11,6 +11,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Models\Company;
 use App\Models\Gallery;
 use App\Models\Product;
+use App\Models\Contact;
 use App\Models\Visitor;
 
 class AppServiceProvider extends ServiceProvider
@@ -38,12 +39,12 @@ class AppServiceProvider extends ServiceProvider
             $visitorCount = Visitor::count(); // Menghitung total pengunjung
             $testimonies = Testimony::all(); // Mengambil semua testimonies
             $about = About::findOrFail(1); // Mengambil data about dengan ID 1
-
+            $contacts = Contact::all(); // Mengambil semua kontak
+    
             // Melewatkan data ke view
-            $view->with(compact('company', 'totalImages', 'visitorCount', 'testimonies', 'about'));
+            $view->with(compact('company', 'totalImages', 'visitorCount', 'testimonies', 'about', 'contacts'));
         });
-
-        // Memanggil method index dari CompsnyProfileController
+    
         $this->app->make(CompanyProfileController::class)->index();
         $company = Company::findOrFail(1);
         $totalImages = Gallery::count();
@@ -52,7 +53,8 @@ class AppServiceProvider extends ServiceProvider
         $gallery = Gallery::all();
         $about = About::findOrFail(1);
         $products = Product::all();
-
+        $contacts = Contact::all();
+    
         view()->share('company', $company);
         view()->share('totalImages', $totalImages);
         view()->share('visitorCount', $visitorCount);
@@ -60,6 +62,9 @@ class AppServiceProvider extends ServiceProvider
         view()->share('about', $about);
         view()->share('gallery', $gallery);
         view()->share('products', $products);
-
+        view()->share('contacts', $contacts);
     }
+    
+    
+    
 }

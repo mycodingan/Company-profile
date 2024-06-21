@@ -59,20 +59,20 @@
         <div class="col-md-6">
             <div class="form-container">
                 <h2>Send Message</h2>
-                <form>
+                <form id="contactForm" method="POST" action="{{ route('contacts.store') }}">                    @csrf
                     <div class="form-group">
                         <label>Full Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" name="name" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" class="form-control">
+                        <input type="email" name="email" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Type your message...</label>
-                        <textarea class="form-control" rows="5"></textarea>
+                        <textarea name="message" class="form-control" rows="5" required></textarea>
                     </div>
-                    <button type="button" class="send-btn">Send</button>
+                    <button type="submit" class="send-btn btn btn-primary">Send</button>
                 </form>
             </div>
         </div>

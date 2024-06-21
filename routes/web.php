@@ -9,6 +9,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TestimonyController;
+use App\Http\Controllers\ContactController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 
 //halaman utama untuk seluruh tampilan company profile
-Route::get('/' , [CompanyProfileController::class, 'index']);
+Route::get('/', [CompanyProfileController::class, 'index']);
 
 // Route untuk halaman login
 Route::get('/login', [UserController::class, 'showLoginForm'])->name('login')->middleware('guest');
@@ -36,6 +38,18 @@ Route::post('/register', [UserController::class, 'register'])->middleware('guest
 
 // Grup route yang memerlukan autentikasi
 Route::middleware(['auth'])->group(function () {
+    // contact
+    // Route::post('/send-email', [ContactController::class, 'sendEmail'])->name('send.email');
+    // Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+
+    Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+    Route::get('/contacts   /create', [ContactController::class, 'create'])->name('contacts.create');
+    Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
+    Route::get('/contacts/{id}', [ContactController::class, 'show'])->name('contacts.show');
+    Route::get('/contacts/{id}/edit', [ContactController::class, 'edit'])->name('contacts.edit');
+    Route::put('/contacts/{id}', [ContactController::class, 'update'])->name('contacts.update');
+    Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+
     // product
     Route::get('/products', [ProductController::class, 'index'])->name('product.index');
     Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');

@@ -19,6 +19,11 @@
         background: linear-gradient(135deg, #74a4ff, #0b53ce) !important;
         /* Gradasi biru untuk ikon */
     }
+    .website-name {
+    white-space: pre-wrap; /* Allows breaking lines at spaces */
+    word-break: break-word; /* Allows breaking words if necessary */
+}
+
 
     /* Background gradient biru untuk logo */
 </style>
@@ -30,8 +35,11 @@
             aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html"
             target="_blank">
-            <span class="ms-1 font-weight-bold">{{ $company->website_name }}</span>
+            <span class="ms-1 font-weight-bold website-name">{{ $company->website_name }} <br> 
+             <br>
+            </span>
         </a>
+
     </div>
     <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
@@ -82,14 +90,16 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('testimony*') ? 'active' : '' }}" href="{{ route('testimony.index') }}">
-                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <a class="nav-link {{ Request::is('testimony*') ? 'active' : '' }}"
+                    href="{{ route('testimony.index') }}">
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fas fa-comment"></i>
                     </div>
                     <span class="nav-link-text ms-1">Testimonial</span>
                 </a>
             </li>
-            
+
         </ul>
     </div>
 </aside>

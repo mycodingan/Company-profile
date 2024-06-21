@@ -33,7 +33,7 @@
 
 <!-- Video container -->
 <div class="video-container">
-    <video id="headerVideo" src="{{ asset('vidio/header.mp4') }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen muted></video>
+    <video id="headerVideo" src="{{ asset('vidio/header2.mp4') }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen muted></video>
     <div class="overlay"></div>
     <div class="welcome-message">
         Selamat Datang di Website <br>{{ $company->website_name }}
